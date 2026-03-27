@@ -47,7 +47,6 @@
             margin-bottom: 40px;
         }
         
-        /* Titres de section (Publications, Work in Progress) */
         h2 { 
             color: #24292e; 
             font-size: 1.8em; 
@@ -59,7 +58,7 @@
         }
         h2:first-child { margin-top: 0; }
 
-        /* Titres de Thèmes (Nouveau style pour bien séparer) */
+        /* Style pour les titres de thèmes */
         .theme-header {
             background-color: #f8f9fa;
             padding: 15px 20px;
@@ -77,11 +76,14 @@
             letter-spacing: 0.5px;
         }
 
-        /* --- CARTE PUBLICATION --- */
         .project-card {
             margin-bottom: 40px;
             padding-bottom: 40px;
             border-bottom: 1px solid #eee;
+            display: flex; /* Active le mode flexible pour les colonnes */
+            flex-wrap: wrap; /* Permet de passer à la ligne sur mobile */
+            gap: 30px; /* Espace entre le texte et l'image */
+            align-items: flex-start;
         }
         .project-card:last-child {
             border-bottom: none;
@@ -89,10 +91,25 @@
             padding-bottom: 0;
         }
 
-        /* En-tête de la carte */
-        .pub-full-header {
-            margin-bottom: 20px;
+        /* Colonne Texte */
+        .pub-text-col {
+            flex: 1; /* Prend l'espace restant */
+            min-width: 0; /* Important pour que le texte ne déborde pas */
         }
+
+        /* Colonne Image */
+        .pub-image-col {
+            flex: 0 0 350px; /* Largeur fixe de 350px pour l'image */
+            text-align: center;
+        }
+        .pub-image-col img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .pub-full-header { margin-bottom: 20px; }
         .pub-title-row {
             display: flex;
             align-items: center;
@@ -128,7 +145,6 @@
             white-space: nowrap;
         }
         
-        /* Boutons et Tags */
         .pub-link-inline {
             display: inline-block;
             background-color: #0366d6;
@@ -172,40 +188,30 @@
         .pub-media-inline a { color: #0366d6; text-decoration: none; }
         .pub-media-inline a:hover { text-decoration: underline; }
 
-        /* Contenu : Abstract + Image */
-        .pub-content-body {
-            margin-top: 15px;
-        }
         .project-description {
             text-align: justify;
             line-height: 1.7;
             color: #333;
             font-size: 0.95em;
-            margin-bottom: 25px; /* Espace avant l'image */
-        }
-        .pub-image-container {
-            text-align: center;
-            margin-top: 10px;
-        }
-        .pub-illustration {
-            max-width: 60%; /* Image réduite à 60% */
-            height: auto;
-            border-radius: 6px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            display: inline-block;
+            margin: 0; /* On gère la marge via le conteneur */
         }
 
         @media (max-width: 768px) {
+            .project-card {
+                flex-direction: column; /* Empile texte et image sur mobile */
+            }
+            .pub-image-col {
+                flex: none;
+                width: 100%;
+                text-align: center;
+            }
             .pub-title-row { gap: 8px; }
-            .pub-illustration { max-width: 100%; }
-            .theme-header h3 { font-size: 1.1em; }
         }
         footer { text-align: center; margin: 40px 0; color: #888; font-size: 0.9em; }
     </style>
 </head>
 <body>
 
-    <!-- MENU -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-brand">Carla Morvan</a>
@@ -219,204 +225,99 @@
         </div>
     </nav>
 
-    <!-- CONTENU -->
     <div class="content-section">
         <h1>Research</h1>
         
-        <!-- SECTION: PUBLICATIONS -->
         <h2>Publications</h2>
         
-        <!-- Publication 1 -->
+        <!-- Publication 1 (AVEC IMAGE) -->
         <div class="project-card">
-            <div class="pub-full-header">
-                <div class="pub-title-row">
-                    <a href="https://link.springer.com/article/10.1007/s11127-023-01137-x" class="pub-title-link" target="_blank">
-                        Natural disasters and voter gratitude: What role for prevention policies?
-                    </a>
-                    <span class="pub-coauthors">with Sonia Paty,</span>
-                    <span class="pub-journal">Public Choice, 2024.</span>
-                    <a href="https://hal.science/hal-04160167/" class="pub-link-inline" target="_blank">Working Paper</a>
-                    <div class="pub-media-inline">
-                        <strong>Science com:</strong> 
-                        <a href="https://www.blog-afse.fr/billet/la-gestion-des-catastrophes-naturelles-un-defi-pour-les-collectivites-territoriales" target="_blank">blog post</a>, 
-                        <a href="https://www.touteconomie.org/conferences/la-gestion-locale-des-catastrophes-naturelles-inondations-secheresse-seismes-etc-video" target="_blank">JECO</a>.
+            <!-- Colonne Gauche : Texte -->
+            <div class="pub-text-col">
+                <div class="pub-full-header">
+                    <div class="pub-title-row">
+                        <a href="https://link.springer.com/article/10.1007/s11127-023-01137-x" class="pub-title-link" target="_blank">
+                            Natural disasters and voter gratitude: What role for prevention policies?
+                        </a>
+                        <span class="pub-coauthors">with Sonia Paty,</span>
+                        <span class="pub-journal">Public Choice, 2024.</span>
+                        <a href="https://hal.science/hal-04160167/" class="pub-link-inline" target="_blank">Working Paper</a>
+                        <div class="pub-media-inline">
+                            <strong>Science com:</strong> 
+                            <a href="https://www.blog-afse.fr/billet/la-gestion-des-catastrophes-naturelles-un-defi-pour-les-collectivites-territoriales" target="_blank">blog post</a>, 
+                            <a href="https://www.touteconomie.org/conferences/la-gestion-locale-des-catastrophes-naturelles-inondations-secheresse-seismes-etc-video" target="_blank">JECO</a>.
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="pub-content-body">
                 <p class="project-description">
                     Natural disasters and related prevention policies can affect voter decisions. In this study, we analyze how the occurrence of natural disasters changes voters' behavior at municipal elections and how prevention policies can mitigate the impact of such catastrophic events on budget accounts and might potentially be rewarded by citizens in upcoming elections. We exploit original data on French municipalities where incumbents sought reelection between 2008 and 2020. To estimate the probability of re-election at the municipal level in the event of a natural disaster we apply a Heckman model based strategy to avoid selection bias. We find that the occurrence of natural disasters significantly decreases the chances of re-election of incumbent mayors. However, although we show that natural hazard prevention plans significantly mitigate the impact of catastrophic events on budget accounts, citizens do not reward such prevention policies in upcoming elections. We confirm the hypothesis of myopia: voters reward incumbents for delivering investment spending or decreasing debt but not for investing in spending on disaster preparedness.
                 </p>
-                <div class="pub-image-container">
-                    <img src="assets/image_pprn.jpg" alt="PPRN Graph" class="pub-illustration">
-                </div>
+            </div>
+            <!-- Colonne Droite : Image -->
+            <div class="pub-image-col">
+                <img src="assets/image_pprn.jpg" alt="PPRN Graph">
             </div>
         </div>
 
-        <!-- Publication 2 -->
+        <!-- Publication 2 (SANS IMAGE - Texte pleine largeur) -->
         <div class="project-card">
-            <div class="pub-full-header">
-                <div class="pub-title-row">
-                    <a href="https://shs.cairn.info/revue-economique-2024-4-page-665?lang=fr" class="pub-title-link" target="_blank">
-                        Les réponses budgétaires des municipalités aux catastrophes naturelles
-                    </a>
-                    <span class="pub-journal">Revue Economique, 2024.</span>
-                    <a href="https://shs.hal.science/halshs-03684732/document" class="pub-link-inline" target="_blank">Working Paper (EN)</a>
-                    <div class="pub-media-inline">
-                        <strong>Science com:</strong> 
-                        <a href="https://www.umontpellier.fr/articles/a-lum-la-science-s04-ep18-les-mairies-face-aux-catastrophes-naturelles" target="_blank">Podcast "A l'UM la science"</a>.
+            <div class="pub-text-col" style="width: 100%;">
+                <div class="pub-full-header">
+                    <div class="pub-title-row">
+                        <a href="https://shs.cairn.info/revue-economique-2024-4-page-665?lang=fr" class="pub-title-link" target="_blank">
+                            Les réponses budgétaires des municipalités aux catastrophes naturelles
+                        </a>
+                        <span class="pub-journal">Revue Economique, 2024.</span>
+                        <a href="https://shs.hal.science/halshs-03684732/document" class="pub-link-inline" target="_blank">Working Paper (EN)</a>
+                        <div class="pub-media-inline">
+                            <strong>Science com:</strong> 
+                            <a href="https://www.umontpellier.fr/articles/a-lum-la-science-s04-ep18-les-mairies-face-aux-catastrophes-naturelles" target="_blank">Podcast "A l'UM la science"</a>.
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="pub-content-body">
                 <p class="project-description">
                     L'objectif de cet article est d'analyser l'impact des catastrophes naturelles sur les choix budgétaires des municipalités, en utilisant une base de données originale qui nous permet d'étudier un échantillon comprenant toutes les municipalités françaises, dont 22 972 ont été touchées par une catastrophe naturelle entre 2000 et 2019. Cette analyse exploratoire utilise des modèles de régression de panel dynamique (PVAR) pour estimer les réponses des municipalités aux catastrophes naturelles. Nous montrons qu'un choc provoque une augmentation des dépenses pendant environ 8 ans, ainsi qu'une augmentation des recettes et de l'endettement jusqu'à 10 ans après la catastrophe. 
                 </p>
-                <!-- Ajoutez une image ici si vous en avez une pour cet article -->
             </div>
         </div>
 
-        <!-- SECTION: WORK IN PROGRESS -->
         <h2>Work in Progress</h2>
 
         <!-- THEME 1 -->
         <div class="theme-header">
-            <h3>Environmental and Health Economics</h3>
+            <h3>Environmental and Health economics</h3>
         </div>
 
-        <!-- Projet 1: Air Pollution & COVID -->
+        <!-- Projet 1: Air Pollution & COVID (AVEC IMAGE) -->
         <div class="project-card">
-            <div class="pub-full-header">
-                <div class="pub-title-row">
-                    <span class="pub-title-link" style="cursor: default; border-bottom: none;">
-                        When air pollution meets comorbidities: Evidence on the causal effect of PM2.5 on COVID-19 outcomes
-                    </span>
-                    <span class="pub-coauthors">with E. Lavaine (CEE-M) and J. Lepeule (INSERM),</span>
-                    <span class="pub-link-inline-static">WP upon request</span>
-                    <div class="pub-media-inline">
-                        <em>R & R: Int. Journal of Epidemiology (IF: 8.3)</em>
+            <div class="pub-text-col">
+                <div class="pub-full-header">
+                    <div class="pub-title-row">
+                        <span class="pub-title-link" style="cursor: default; border-bottom: none;">
+                            When air pollution meets comorbidities: Evidence on the causal effect of PM2.5 on COVID-19 outcomes
+                        </span>
+                        <span class="pub-coauthors">with E. Lavaine (CEE-M) and J. Lepeule (INSERM),</span>
+                        <span class="pub-link-inline-static">WP upon request</span>
+                        <div class="pub-media-inline">
+                            <em>R & R: Int. Journal of Epidemiology (IF: 8.3)</em>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="pub-content-body">
                 <p class="project-description">
-                    Despite growing evidence on the health effects of air pollution, few studies have examined its impact on COVID-19 hospitalizations and deaths, and none have explicitly accounted for preexisting comorbidities in a causal framework. This study addresses this gap by investigating the relationship between PM2.5 exposure and COVID-19 severity. We place particular emphasis on the role of comorbidities, which can increase vulnerability to COVID-19 and may interact with air pollution exposure. We use an exhaustive dataset covering the entire French territory over 2020-2021, totaling more than 3.5 million weekly observations. We find no significant effect of PM2.5 exposure on COVID-19 mortality or hospitalizations among individuals without preexisting conditions. However, when accounting for comorbidities, we observe a significant increase in both, particularly among patients with respiratory and cardiovascular diseases.
+                    Despite growing evidence on the health effects of air pollution, few studies have examined its impact on COVID-19 hospitalizations and deaths, and none have explicitly accounted for preexisting comorbidities in a causal framework.  This study addresses this gap by investigating the relationship between PM2.5 exposure and COVID-19 severity. We place particular emphasis on the role of comorbidities, which can increase vulnerability to COVID-19 and may interact with air pollution exposure.  We use an exhaustive dataset covering the entire French territory over 2020-2021, totaling more than 3.5 million weekly observations. We find no significant effect of PM2.5 exposure on COVID-19 mortality or hospitalizations among individuals without preexisting conditions. However, when accounting for comorbidities, we observe a significant increase in both, particularly among patients with respiratory and cardiovascular diseases. 
                 </p>
-                <div class="pub-image-container">
-                    <img src="assets/image_ivpmcovid.png" alt="diagram IV PM" class="pub-illustration">
-                </div>
+            </div>
+            <div class="pub-image-col">
+                <img src="assets/image_ivpmcovid.png" alt="diagram IV PM">
             </div>
         </div>
 
-        <!-- Projet 2: Global Pandemic -->
+        <!-- Projet 2: Global Pandemic (AVEC IMAGE) -->
         <div class="project-card">
-            <div class="pub-full-header">
-                <div class="pub-title-row">
-                    <span class="pub-title-link" style="cursor: default; border-bottom: none;">
-                        Global pandemic consequences: Lasting health effects beyond the virus
-                    </span>
-                    <span class="pub-coauthors">with E. Lavaine (CEE-M),</span>
-                    <span class="pub-link-inline-static">WP upon request</span>
-                </div>
-            </div>
-            <div class="pub-content-body">
-                <p class="project-description">
-                    This paper investigates the indirect health effects of the pandemic, focusing on non-COVID mortality in France. Rather than examining the virus itself, we assess the broader consequences of the pandemic as a systemic shock that disrupted access to care, altered health behaviors, and increased psychosocial stress. Using the date of first COVID-19 hospitalization at the municipal level as an indicator of local exposure, we implement a staggered difference-in-differences design to estimate the causal impact of the pandemic on non-COVID-19 mortality.
-                </p>
-                <div class="pub-image-container">
-                    <img src="assets/image_stagcovid.png" alt="diagram covid" class="pub-illustration">
-                </div>
-            </div>
-        </div>
-
-        <!-- Projet 3: Breathing Inequality -->
-        <div class="project-card">
-            <div class="pub-full-header">
-                <div class="pub-title-row">
-                    <span class="pub-title-link" style="cursor: default; border-bottom: none;">
-                        Breathing inequality: Air pollution and mental health
-                    </span>
-                    <span class="pub-coauthors">with E. Lavaine (CEE-M),</span>
-                    <span class="pub-link-inline-static">WP upon request</span>
-                </div>
-            </div>
-            <div class="pub-content-body">
-                <p class="project-description">
-                    This paper investigates the causal effect of air pollution on mental health outcomes. We exploit exogenous variation in local pollution levels driven by wind direction and intensity as an instrumental variable to identify the impact. Using detailed administrative health data, we examine diagnosed mental health disorders, with a particular focus on depression and anxiety-related pathologies. Beyond average effects, we document substantial inequalities in exposure across socioeconomic groups and assess how these disparities translate into unequal mental health risks.
-                </p>
-                <!-- Pas d'image pour celui-ci pour l'instant -->
-            </div>
-        </div>
-
-        <!-- THEME 2 -->
-        <div class="theme-header">
-            <h3>Natural Risks, Local Public Policies & Political Economy</h3>
-        </div>
-
-        <!-- Projet 4: Political Events -->
-        <div class="project-card">
-            <div class="pub-full-header">
-                <div class="pub-title-row">
-                    <span class="pub-title-link" style="cursor: default; border-bottom: none;">
-                        Are natural disasters political events for municipalities?
-                    </span>
-                    <span class="pub-coauthors">with S. Paty (GATE),</span>
-                    <span class="pub-link-inline-static">WP upon request</span>
-                    <div class="pub-media-inline">
-                        <em>Under review</em>
-                    </div>
-                </div>
-            </div>
-            <div class="pub-content-body">
-                <p class="project-description">
-                    This paper provides new evidence on the role of political alignment in natural disaster relief and its reward by voters at the municipal level. To analyze how political alignment between state and municipalities may influence the disaster declaration and the probability for citizens to get insurance compensations after a natural disaster, we exploit an original data set on natural disasters and French municipalities between 2008 and 2020. Using a difference-in-differences (DiD) strategy, we find that the political alignment between the local incumbent and the state significantly increases the probability of obtaining a natural disaster declaration from the state. To check whether citizens reward the incumbents who obtained a disaster declaration and therefore insurance compensation, we apply a Heckman model-based strategy to avoid selection bias. Although a natural disaster reduces the probability for the incumbents to be reelected, this negative effect is lower when the disaster declaration was decided by the state.
-                </p>
-            </div>
-        </div>
-
-        <!-- Projet 5: When Nature Strikes Repeatedly -->
-        <div class="project-card">
-            <div class="pub-full-header">
-                <div class="pub-title-row">
-                    <span class="pub-title-link" style="cursor: default; border-bottom: none;">
-                        When nature strikes repeatedly: Heterogeneous budgetary responses of municipalities to natural disasters
-                    </span>
-                    <span class="pub-link-inline-static">WP upon request</span>
-                </div>
-            </div>
-            <div class="pub-content-body">
-                <p class="project-description">
-                    Natural disasters can affect territories not just once but repeatedly, with increasing frequency and intensity. This paper analyzes the causal impact of natural disasters on municipalities' budgetary decisions, accounting for both the sporadic nature and repetition of these extreme events. Using an original dataset covering all French municipalities from 2000 to 2022, I employ a staggered difference-in-differences methodology with a non binary treatment approach. The findings reveal that each disaster triggers an immediate increase in municipal spending, followed by a long-term rise in tax revenues. Additionally, a heterogeneity analysis highlights variations across territories vulnerability and disaster types, shedding light on the specific factors that shape municipal responses.
-                </p>
-                <div class="pub-image-container">
-                    <img src="assets/image_catnat.png" alt="diagram catnat" class="pub-illustration">
-                </div>
-            </div>
-        </div>
-
-        <!-- Projet 6: Optimal Public Management -->
-        <div class="project-card">
-            <div class="pub-full-header">
-                <div class="pub-title-row">
-                    <span class="pub-title-link" style="cursor: default; border-bottom: none;">
-                        Optimal public management of local budget subject to capital shocks
-                    </span>
-                    <span class="pub-coauthors">with F. Jouneau (GATE),</span>
-                    <span class="pub-link-inline-static">WP upon request</span>
-                </div>
-            </div>
-            <div class="pub-content-body">
-                <p class="project-description">
-                    We present a theoretical framework to explore the consequences of natural disasters on municipal financial aggregates. In our model, a local benevolent decision-maker dynamically maximizes the welfare of its fellow citizens, under exogenous shocks. We focus on the occurrence of natural disasters that destroy part of a local capital stock. We highlight how the optimal response is linked to the financial capacity of the local government. More precisely, we perform simulations under fully constrained and totally unbounded access to borrowing. These simulations are performed using calibration derived from a French panel data set covering yearly financial data from 2000 to 2019 over 10.000 municipalities. In both cases, we investigate optimal responses to natural disaster shocks in both cases for investment, local expenditure, and debt. We quantify the relative welfare consequences and the speed of recovery between constrained and unconstrained municipalities.
-                </p>
-            </div>
-        </div>
-
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Carla Morvan. Hosted on GitHub Pages.</p>
-    </footer>
-
-</body>
-</html>
+            <div class="pub-text-col">
+                <div class="pub-full-header">
+                    <div class="pub-title-row">
+                        <span class="pub-title-link" style="cursor: default; border-bottom: none;">
+                            Global pandemic consequences: Lasting health effects beyond the virus 
+                        </span>
+                        <span class="pub-coauthors">with E
