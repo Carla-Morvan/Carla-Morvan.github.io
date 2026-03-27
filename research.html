@@ -166,7 +166,29 @@
             padding-bottom: 15px;
             border-bottom: 2px solid #f0f0f0;
         }
+/* Style pour un bouton "Working Paper" non cliquable (gris) */
+        .pub-link-inline-static {
+            display: inline-block;
+            background-color: #6c757d; /* Gris au lieu de bleu */
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.8em;
+            font-weight: 600;
+            white-space: nowrap;
+            margin-left: 5px;
+            cursor: default; /* La souris ne se transforme pas en main */
+        }
 
+        /* Ajustement pour le titre non cliquable */
+        .pub-title-link[style*="cursor: default"] {
+            color: #000;
+            border-bottom: none !important;
+        }
+        .pub-title-link[style*="cursor: default"]:hover {
+            color: #000; /* Pas de changement de couleur au survol */
+        }
         /* --- PARTIE 2 : GRILLE 2 COLONNES --- */
         .pub-content-grid {
             display: flex;
