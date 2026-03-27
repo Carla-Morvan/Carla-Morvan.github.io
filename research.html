@@ -56,56 +56,7 @@
             padding-bottom: 15px;
         }
 
-       
-        
-        .project-text {
-            flex: 1;
-            min-width: 0; /* Empêche le débordement */
-        }
-        
-        .project-image {
-            flex: 0 0 350px; /* Largeur fixe pour l'image */
-            text-align: center;
-        }
-        .project-image img {
-            max-width: 100%;
-            height: auto;
-            max-height: 250px;
-            border-radius: 6px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            object-fit: contain; /* L'image garde ses proportions */
-        }
-        .project-title {
-            font-weight: 600;
-            font-size: 1.1em;
-            color: #000;
-            display: block;
-            margin-bottom: 5px;
-        }
-        .project-collab {
-            color: #555;
-            font-size: 0.95em;
-            display: block;
-            margin-bottom: 8px;
-        }
-        .project-status {
-            font-size: 0.9em;
-            color: #0366d6;
-            font-weight: 500;
-            display: inline-block;
-            background-color: #eef2f7;
-            padding: 3px 10px;
-            border-radius: 4px;
-            margin-top: 5px;
-        }
-        .project-description {
-            font-size: 0.95em;
-            color: #555;
-            margin-top: 10px;
-            text-align: justify;
-        }
-
-        /* Conteneur principal de la carte */
+        /* --- CARTE PUBLICATION --- */
         .project-card {
             margin-bottom: 50px;
             padding-bottom: 50px;
@@ -118,21 +69,25 @@
         /* --- PARTIE 1 : EN-TÊTE PLEINE LARGEUR --- */
         .pub-full-header {
             margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #f0f0f0; /* Séparation visuelle fine */
+            /* Pas de border-bottom ici, on le mettra dans la row si besoin */
         }
 
         .pub-title-row {
-            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
             line-height: 1.4;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
         }
 
         .pub-title-link {
             font-weight: 700;
-            font-size: 1.2em; /* Titre un peu plus grand */
+            font-size: 1.15em;
             color: #000;
             text-decoration: none;
-            margin-right: 8px;
+            white-space: nowrap;
             border-bottom: 1px solid transparent;
             transition: color 0.2s, border-bottom 0.2s;
         }
@@ -144,68 +99,52 @@
         .pub-coauthors {
             color: #555;
             font-style: italic;
-            margin-right: 5px;
+            font-size: 0.95em;
+            white-space: nowrap;
         }
 
         .pub-journal {
             color: #444;
             font-weight: 500;
+            font-size: 0.95em;
+            white-space: nowrap;
         }
 
-        .pub-action-row {
-            margin-top: 10px;
-        }
-
-        .pub-link {
+        /* Style pour le bouton Working Paper en ligne */
+        .pub-link-inline {
             display: inline-block;
             background-color: #0366d6;
             color: white;
-            padding: 6px 14px;
+            padding: 4px 10px;
             border-radius: 4px;
             text-decoration: none;
-            font-size: 0.85em;
-            font-weight: 500;
+            font-size: 0.8em;
+            font-weight: 600;
+            white-space: nowrap;
             transition: background 0.3s;
+            margin-left: 5px;
         }
-        .pub-link:hover {
+        .pub-link-inline:hover {
             background-color: #0255b3;
             text-decoration: none;
+            color: white;
         }
 
-        /* --- PARTIE 2 : GRILLE 2 COLONNES (Abstract + Image) --- */
-         /* Style Media Coverage */
-        .pub-media {
-            font-size: 0.9em;
-            color: #555; /* Gris foncé, plus doux */
-            margin-bottom: 15px;
-            background-color: #f0f4f8; /* Fond bleu très pâle, presque gris */
-            padding: 8px 12px;
-            border-radius: 4px;
-            border-left: 3px solid #0366d6; /* Liseré BLEU (couleur de vos liens) au lieu du rouge */
-            display: inline-block; /* Pour que le fond ne prenne pas toute la largeur */
-        }
-        .pub-media a {
-            color: #0366d6; /* Liens bleus */
-            text-decoration: underline;
-        }
-        .pub-media strong {
-            font-weight: 600;
-            color: #333; /* "Science communication:" en gris foncé */
-        }
-
+        /* --- PARTIE 2 : GRILLE 2 COLONNES --- */
         .pub-content-grid {
             display: flex;
             gap: 40px;
-            align-items: flex-start; /* Alignement en haut */
+            align-items: flex-start;
+            margin-top: 20px;
         }
 
         .pub-abstract-col {
-            flex: 1; /* Prend l'espace restant (environ 60-70%) */
-            min-width: 0; /* Important pour que le texte ne déborde pas */
+            flex: 1;
+            min-width: 0;
         }
 
         .pub-image-col {
-            flex: 0 0 300px; /* Largeur fixe de 300px pour l'image */
+            flex: 0 0 300px;
             text-align: center;
         }
 
@@ -217,7 +156,26 @@
             display: block;
         }
 
-       
+        /* Media Coverage */
+        .pub-media {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 15px;
+            background-color: #f0f4f8;
+            padding: 8px 12px;
+            border-radius: 4px;
+            border-left: 3px solid #0366d6;
+            display: inline-block;
+        }
+        .pub-media a {
+            color: #0366d6;
+            text-decoration: underline;
+        }
+        .pub-media strong {
+            font-weight: 600;
+            color: #333;
+        }
+
         .project-description {
             text-align: justify;
             line-height: 1.6;
@@ -226,7 +184,7 @@
             margin: 0;
         }
 
-        /* Responsive : Sur mobile, on empile tout */
+        /* Responsive */
         @media (max-width: 768px) {
             .pub-content-grid {
                 flex-direction: column;
@@ -237,7 +195,7 @@
                 width: 100%;
             }
             .pub-title-row {
-                flex-wrap: wrap;
+                gap: 8px;
             }
         }
         footer { text-align: center; margin: 40px 0; color: #888; font-size: 0.9em; }
@@ -267,7 +225,7 @@
         <!-- SECTION: PUBLICATIONS -->
         <h2>Publications</h2>
         
- <!-- Publication 1 -->
+        <!-- Publication 1 -->
         <div class="project-card">
             
             <!-- PARTIE 1 : EN-TÊTE PLEINE LARGEUR -->
@@ -306,6 +264,7 @@
         </div>
 
     </div>
+
 
         <!-- Publication 2 -->
         <div class="project-card">
