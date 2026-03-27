@@ -31,8 +31,7 @@ display: flex; justify-content: space-between; align-items: center;
 .nav-links a { text-decoration: none; color: #555; font-weight: 500; transition: color 0.3s; }
 .nav-links a:hover { color: #0366d6; }
 .nav-links a.active { color: #0366d6; font-weight: bold; border-bottom: 2px solid #0366d6; }
-css
-Copier
+
     .content-section {
         max-width: 900px;
         margin: 40px auto;
@@ -42,22 +41,43 @@ Copier
         box-shadow: 0 2px 10px rgba(0,0,0,0.03);
     }
     h1 { 
-        font-weight: 200; 
-        color: #24292e; 
-        margin-top: 0; 
-        font-size: 3.5em; 
-        letter-spacing: -1px;
-        margin-bottom: 40px;
-    }
-    h2 { 
-        color: #24292e; 
-        font-size: 1.5em; 
-        font-weight: 600;
-        margin-top: 50px; 
-        margin-bottom: 30px;
-        border-bottom: 2px solid #f0f0f0;
-        padding-bottom: 15px;
-    }
+            font-weight: 200; 
+            color: #24292e; 
+            margin-top: 0; 
+            font-size: 3.5em; 
+            letter-spacing: -1px;
+            margin-bottom: 40px;
+        }
+        
+        /* Titres de section (Publications, Work in Progress) */
+        h2 { 
+            color: #24292e; 
+            font-size: 1.8em; 
+            font-weight: 600;
+            margin-top: 60px; 
+            margin-bottom: 30px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 15px;
+        }
+        h2:first-child { margin-top: 0; }
+
+        /* Titres de Thèmes (Nouveau style pour bien séparer) */
+        .theme-header {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            border-left: 5px solid #0366d6;
+            border-radius: 4px;
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+        .theme-header h3 {
+            margin: 0;
+            color: #24292e;
+            font-size: 1.3em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
     /* --- CARTE PUBLICATION --- */
     .project-card {
