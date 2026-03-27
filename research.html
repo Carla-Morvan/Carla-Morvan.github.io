@@ -1,211 +1,256 @@
 <!DOCTYPE html>
+
+
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Carla Morvan - Research</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding-top: 80px;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-        .navbar {
-            position: fixed; top: 0; left: 0; width: 100%;
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            z-index: 1000;
-            padding: 15px 0;
-        }
-        .nav-container {
-            max-width: 900px; margin: 0 auto; padding: 0 20px;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        .nav-brand { font-size: 1.2em; font-weight: bold; color: #24292e; text-decoration: none; }
-        .nav-links { list-style: none; margin: 0; padding: 0; display: flex; gap: 25px; }
-        .nav-links a { text-decoration: none; color: #555; font-weight: 500; transition: color 0.3s; }
-        .nav-links a:hover { color: #0366d6; }
-        .nav-links a.active { color: #0366d6; font-weight: bold; border-bottom: 2px solid #0366d6; }
+<meta charset="UTF-8">
+<title>Carla Morvan - Research</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body {
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+margin: 0;
+padding-top: 80px;
+line-height: 1.6;
+color: #333;
+background-color: #f9f9f9;
+}
+.navbar {
+position: fixed; top: 0; left: 0; width: 100%;
+background-color: #ffffff;
+box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+z-index: 1000;
+padding: 15px 0;
+}
+.nav-container {
+max-width: 900px; margin: 0 auto; padding: 0 20px;
+display: flex; justify-content: space-between; align-items: center;
+}
+.nav-brand { font-size: 1.2em; font-weight: bold; color: #24292e; text-decoration: none; }
+.nav-links { list-style: none; margin: 0; padding: 0; display: flex; gap: 25px; }
+.nav-links a { text-decoration: none; color: #555; font-weight: 500; transition: color 0.3s; }
+.nav-links a:hover { color: #0366d6; }
+.nav-links a.active { color: #0366d6; font-weight: bold; border-bottom: 2px solid #0366d6; }
+css
+Copier
+    .content-section {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 40px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    h1 { 
+        font-weight: 200; 
+        color: #24292e; 
+        margin-top: 0; 
+        font-size: 3.5em; 
+        letter-spacing: -1px;
+        margin-bottom: 40px;
+    }
+    h2 { 
+        color: #24292e; 
+        font-size: 1.5em; 
+        font-weight: 600;
+        margin-top: 50px; 
+        margin-bottom: 30px;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 15px;
+    }
 
-        .content-section {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 40px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-        }
-        h1 { 
-            font-weight: 200; 
-            color: #24292e; 
-            margin-top: 0; 
-            font-size: 3.5em; 
-            letter-spacing: -1px;
-            margin-bottom: 40px;
-        }
-        
-        /* Titres de section (Publications, Work in Progress) */
-        h2 { 
-            color: #24292e; 
-            font-size: 1.8em; 
-            font-weight: 600;
-            margin-top: 60px; 
-            margin-bottom: 30px;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 15px;
-        }
-        h2:first-child { margin-top: 0; }
+    /* --- CARTE PUBLICATION --- */
+    .project-card {
+        margin-bottom: 50px;
+        padding-bottom: 50px;
+        border-bottom: 1px solid #eee;
+    }
+    .project-card:last-child {
+        border-bottom: none;
+    }
 
-        /* Titres de Thèmes (Nouveau style pour bien séparer) */
-        .theme-header {
-            background-color: #f8f9fa;
-            padding: 15px 20px;
-            border-left: 5px solid #0366d6;
-            border-radius: 4px;
-            margin-top: 50px;
-            margin-bottom: 30px;
-        }
-        .theme-header h3 {
-            margin: 0;
-            color: #24292e;
-            font-size: 1.3em;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+    /* --- PARTIE 1 : EN-TÊTE PLEINE LARGEUR --- */
+    .pub-full-header {
+        margin-bottom: 25px;
+        /* Pas de border-bottom ici, on le mettra dans la row si besoin */
+    }
 
-        /* --- CARTE PUBLICATION --- */
-        .project-card {
-            margin-bottom: 40px;
-            padding-bottom: 40px;
-            border-bottom: 1px solid #eee;
-        }
-        .project-card:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
+    .pub-title-row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        line-height: 1.4;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #f0f0f0;
+    }
 
-        /* En-tête de la carte */
-        .pub-full-header {
-            margin-bottom: 20px;
+    .pub-title-link {
+        font-weight: 700;
+        font-size: 1.15em;
+        color: #000;
+        text-decoration: none;
+        white-space: nowrap;
+        border-bottom: 1px solid transparent;
+        transition: color 0.2s, border-bottom 0.2s;
+    }
+    .pub-title-link:hover {
+        color: #0366d6;
+        border-bottom: 1px solid #0366d6;
+    }
+
+    .pub-coauthors {
+        color: #555;
+        font-style: italic;
+        font-size: 0.95em;
+        white-space: nowrap;
+    }
+
+    .pub-journal {
+        color: #444;
+        font-weight: 500;
+        font-size: 0.95em;
+        white-space: nowrap;
+    }
+
+    /* Style pour le bouton Working Paper en ligne */
+    .pub-link-inline {
+        display: inline-block;
+        background-color: #0366d6;
+        color: white;
+        padding: 4px 10px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 0.8em;
+        font-weight: 600;
+        white-space: nowrap;
+        transition: background 0.3s;
+        margin-left: 5px;
+    }
+    .pub-link-inline:hover {
+        background-color: #0255b3;
+        text-decoration: none;
+        color: white;
+    }
+     /* Media Coverage */
+    /* Style pour le bloc Media dans la ligne du titre */
+    .pub-media-inline {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 0.85em;
+        color: #666;
+        background-color: #f8f9fa; /* Fond gris très clair */
+        padding: 3px 8px;
+        border-radius: 4px;
+        border: 1px solid #e9ecef;
+        white-space: nowrap;
+        margin-left: 10px; /* Espace après le bouton WP */
+    }
+    .pub-media-inline strong {
+        font-weight: 600;
+        color: #444;
+    }
+    .pub-media-inline a {
+        color: #0366d6;
+        text-decoration: none;
+    }
+    .pub-media-inline a:hover {
+        text-decoration: underline;
+    }
+
+    /* Ajustement de la ligne de titre pour permettre le retour à la ligne si nécessaire */
+    .pub-title-row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap; /* IMPORTANT : permet au bloc Media de passer à la ligne si l'écran est trop petit */
+        gap: 8px;
+        line-height: 1.4;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #f0f0f0;
+    }
+
+/* Style pour un bouton "Working Paper" non cliquable (gris) /
+.pub-link-inline-static {
+display: inline-block;
+background-color: #6c757d; / Gris au lieu de bleu /
+color: white;
+padding: 4px 10px;
+border-radius: 4px;
+text-decoration: none;
+font-size: 0.8em;
+font-weight: 600;
+white-space: nowrap;
+margin-left: 5px;
+cursor: default; / La souris ne se transforme pas en main */
+}
+
+
+css
+Copier
+    /* Ajustement pour le titre non cliquable */
+    .pub-title-link[style*="cursor: default"] {
+        color: #000;
+        border-bottom: none !important;
+    }
+    .pub-title-link[style*="cursor: default"]:hover {
+        color: #000; /* Pas de changement de couleur au survol */
+    }
+    /* --- PARTIE 2 : GRILLE 2 COLONNES --- */
+    .pub-content-grid {
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
+        margin-top: 20px;
+    }
+
+    .pub-abstract-col {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .pub-image-col {
+        flex: 0 0 300px;
+        text-align: center;
+    }
+
+    .pub-illustration {
+        max-width: 100%;
+        height: auto;
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        display: block;
+    }
+
+   
+
+    .project-description {
+        text-align: justify;
+        line-height: 1.6;
+        color: #333;
+        font-size: 0.95em;
+        margin: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .pub-content-grid {
+            flex-direction: column;
+            gap: 20px;
+        }
+        .pub-image-col {
+            flex: none;
+            width: 100%;
         }
         .pub-title-row {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            line-height: 1.4;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #f0f0f0;
+            gap: 8px;
         }
-        .pub-title-link {
-            font-weight: 700;
-            font-size: 1.15em;
-            color: #000;
-            text-decoration: none;
-            white-space: nowrap;
-            border-bottom: 1px solid transparent;
-            transition: color 0.2s, border-bottom 0.2s;
-        }
-        .pub-title-link:hover {
-            color: #0366d6;
-            border-bottom: 1px solid #0366d6;
-        }
-        .pub-coauthors {
-            color: #555;
-            font-style: italic;
-            font-size: 0.95em;
-            white-space: nowrap;
-        }
-        .pub-journal {
-            color: #444;
-            font-weight: 500;
-            font-size: 0.95em;
-            white-space: nowrap;
-        }
-        
-        /* Boutons et Tags */
-        .pub-link-inline {
-            display: inline-block;
-            background-color: #0366d6;
-            color: white;
-            padding: 4px 10px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 0.8em;
-            font-weight: 600;
-            white-space: nowrap;
-            transition: background 0.3s;
-        }
-        .pub-link-inline:hover { background-color: #0255b3; color: white; text-decoration: none; }
-        
-        .pub-link-inline-static {
-            display: inline-block;
-            background-color: #6c757d;
-            color: white;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.8em;
-            font-weight: 600;
-            white-space: nowrap;
-            cursor: default;
-        }
-
-        .pub-media-inline {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.85em;
-            color: #666;
-            background-color: #f8f9fa;
-            padding: 3px 8px;
-            border-radius: 4px;
-            border: 1px solid #e9ecef;
-            white-space: nowrap;
-            margin-left: 5px;
-        }
-        .pub-media-inline strong { font-weight: 600; color: #444; }
-        .pub-media-inline a { color: #0366d6; text-decoration: none; }
-        .pub-media-inline a:hover { text-decoration: underline; }
-
-        /* Contenu : Abstract + Image */
-        .pub-content-body {
-            margin-top: 15px;
-        }
-        .project-description {
-            text-align: justify;
-            line-height: 1.7;
-            color: #333;
-            font-size: 0.95em;
-            margin-bottom: 25px; /* Espace avant l'image */
-        }
-        .pub-image-container {
-            text-align: center;
-            margin-top: 10px;
-        }
-        .pub-illustration {
-            max-width: 60%; /* Image réduite à 60% */
-            height: auto;
-            border-radius: 6px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            display: inline-block;
-        }
-
-        @media (max-width: 768px) {
-            .pub-title-row { gap: 8px; }
-            .pub-illustration { max-width: 100%; }
-            .theme-header h3 { font-size: 1.1em; }
-        }
-        footer { text-align: center; margin: 40px 0; color: #888; font-size: 0.9em; }
-    </style>
+    }
+    footer { text-align: center; margin: 40px 0; color: #888; font-size: 0.9em; }
+</style>
 </head>
 <body>
-php
-Copier
+
 <!-- MENU -->
 <nav class="navbar">
     <div class="nav-container">
@@ -300,8 +345,7 @@ L'objectif de cet article est d'analyser l'impact des catastrophes naturelles su
 <h3>Environmental and Health economics</h3>
 <!-- Projet 1: Air Pollution & COVID -->
 <div class="project-card">
-php
-Copier
+
         <!-- PARTIE 1 : EN-TÊTE -->
         <div class="pub-full-header">
             <div class="pub-title-row">
@@ -384,8 +428,7 @@ Copier
 <p class="project-description">
 This paper investigates the causal effect of air pollution on mental health outcomes. We exploit exogenous variation in local pollution levels driven by wind direction and intensity as an instrumental variable to identify the impact. Using detailed administrative health data, we examine diagnosed mental health disorders, with a particular focus on depression and anxiety-related pathologies. Beyond average effects, we document substantial inequalities in exposure across socioeconomic groups and assess how these disparities translate into unequal mental health risks.
 </p>
-php
-Copier
+
           <h3>Natural Risks, Local Public Policies and political economy</h3>
     <!-- Projet 4: Natural Disasters Political Events -->
                  <div class="project-card">
