@@ -5,17 +5,14 @@
     <title>Carla Morvan - Contact</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* MÊME STYLE QUE L'ACCUEIL POUR LA COHÉRENCE */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             margin: 0;
-            padding-top: 80px; /* Espace pour le menu fixe */
+            padding-top: 80px;
             line-height: 1.6;
             color: #333;
             background-color: #f9f9f9;
         }
-
-        /* --- MENU --- */
         .navbar {
             position: fixed; top: 0; left: 0; width: 100%;
             background-color: #ffffff;
@@ -31,47 +28,72 @@
         .nav-links { list-style: none; margin: 0; padding: 0; display: flex; gap: 25px; }
         .nav-links a { text-decoration: none; color: #555; font-weight: 500; transition: color 0.3s; }
         .nav-links a:hover { color: #0366d6; }
-        /* Style pour l'onglet actif */
         .nav-links a.active { color: #0366d6; font-weight: bold; border-bottom: 2px solid #0366d6; }
 
-        /* --- CONTENU --- */
         .content-section {
-            max-width: 800px;
-            margin: 40px auto;
+            max-width: 600px; /* Plus étroit pour centrer l'attention */
+            margin: 60px auto;
             padding: 40px;
             background: white;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            text-align: center; /* Tout centré */
         }
-        h1 { font-weight: 300; color: #24292e; margin-top: 0; font-size: 2.5em; }
-        h2 { color: #24292e; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; margin-top: 30px; font-size: 1.5em; }
-        p { margin-bottom: 15px; text-align: justify; }
         
-        a.text-link { color: #0366d6; text-decoration: none; font-weight: 500; }
-        a.text-link:hover { text-decoration: underline; }
-        
-        ul { line-height: 1.8; padding-left: 20px; }
-        li { margin-bottom: 15px; }
-        
-        /* Style pour les liens [Code] [Data] */
-        .repo-links { font-size: 0.9em; }
-        .repo-links a { 
-            display: inline-block;
-            margin-right: 10px;
-            padding: 2px 8px;
-            background-color: #f0f0f0;
-            border-radius: 4px;
-            text-decoration: none;
+        h1 { 
+            font-weight: 200; 
+            color: #24292e; 
+            margin-top: 0; 
+            font-size: 3.5em; 
+            letter-spacing: -1px;
+            margin-bottom: 40px;
+        }
+
+        .contact-info {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        .contact-name {
+            font-weight: 600;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .contact-address {
             color: #555;
-            font-size: 0.85em;
+            margin-bottom: 15px;
         }
-        .repo-links a:hover { background-color: #e0e0e0; color: #000; }
+        .contact-email {
+            color: #0366d6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .contact-email:hover { text-decoration: underline; }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .social-links a {
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .social-links a:hover { transform: scale(1.1); }
+        .social-links img {
+            width: 40px;
+            height: 40px;
+            display: block;
+        }
 
         footer { text-align: center; margin: 40px 0; color: #888; font-size: 0.9em; }
 
         @media (max-width: 600px) {
             .nav-container { flex-direction: column; gap: 10px; }
             .content-section { padding: 20px; margin: 20px; }
+            h1 { font-size: 2.5em; }
         }
     </style>
 </head>
@@ -94,8 +116,35 @@
     <!-- CONTENU DE LA PAGE CONTACT -->
     <div class="content-section">
         <h1>Contact</h1>
+        
+        <div class="contact-info">
+            <span class="contact-name">MORVAN Carla</span>
+            <div class="contact-address">
+                CEE-M • Campus Richter<br>
+                34000 Montpellier • France
+            </div>
+            <a href="mailto:carla.morvan@umontpellier.fr" class="contact-email">carla.morvan@umontpellier.fr</a>
+        </div>
+
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/carla-morvan-6929b0146/" title="LinkedIn" target="_blank">
+                <img src="assets/linkedin.png" alt="LinkedIn">
+            </a>
+            <a href="https://cv.hal.science/carla-morvan" title="HAL" target="_blank">
+                <img src="assets/hal.png" alt="HAL">
+            </a>
+            <a href="https://scholar.google.com/citations?hl=fr&user=QzCeFGEAAAAJ" title="Google Scholar" target="_blank">
+                <img src="assets/scholar.png" alt="Google Scholar">
+            </a>
+            <a href="mailto:carla.morvan@umontpellier.fr" title="Email">
+                <img src="assets/email.png" alt="Email">
+            </a>
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2026 Carla Morvan. Hosted on GitHub Pages.</p>
     </footer>
+
+</body>
+</html>
