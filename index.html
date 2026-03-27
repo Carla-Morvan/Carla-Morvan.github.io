@@ -4,18 +4,132 @@
     <meta charset="UTF-8">
     <title>Carla Morvan - Portfolio</title>
     <style>
-        body { font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; }
-        h1 { color: #24292e; }
-        .repo-link { display: inline-block; margin-top: 10px; padding: 8px 15px; background: #2da44e; color: white; text-decoration: none; border-radius: 6px; }
+        /* Configuration générale */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Mise en page en deux colonnes */
+        .container {
+            display: flex;
+            flex-wrap: wrap; /* Permet de passer en une seule colonne sur mobile */
+            gap: 40px;
+        }
+
+        .main-content {
+            flex: 2; /* Prend 2/3 de l'espace */
+            min-width: 300px;
+        }
+
+        .sidebar {
+            flex: 1; /* Prend 1/3 de l'espace */
+            min-width: 250px;
+            text-align: center;
+        }
+
+        /* Styles spécifiques */
+        h1 {
+            font-weight: 300;
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #24292e;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify; /* Justifie le texte comme sur votre exemple */
+        }
+
+        /* La photo de profil */
+        .profile-img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Le bouton CV */
+        .cv-button {
+            display: block;
+            width: 100%;
+            padding: 12px 0;
+            background-color: #004a6e; /* Couleur bleu foncé similaire à l'exemple */
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            transition: background 0.3s;
+        }
+        .cv-button:hover {
+            background-color: #00334d;
+        }
+
+        /* Les icônes réseaux sociaux */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .social-links a {
+            text-decoration: none;
+            font-size: 24px; /* Taille des icônes */
+            color: #555;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #0366d6;
+        }
+
+        /* Liens dans le texte */
+        a.text-link {
+            color: #0366d6;
+            text-decoration: none;
+        }
+        a.text-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
-    <h1>Carla Morvan</h1>
-    <p>I am currently a PostDoctoral Fellow within the AirCov project at the Center for environmental economics of Montpellier <a href="https://www.cee-m.fr/">(CEE-M)</a>, studying the health effects of air pollution.</p>
-    
-    <p>My research interests lie in the fields of environmental economics, local public policy evaluation, and political economy.</p>
-    
-    <p>I completed my PhD at <a href="https://www.gate.cnrs.fr/">GATE Lyon—Saint-Etienne</a> and Université Lumière Lyon 2.  My <a href="https://theses.hal.science/tel-04707116">dissertation</a> focuses on the budgetary and electoral consequences of natural disasters and prevention policies at the local level, employing both micro-econometric and theoretical methods. </p>
-    
+
+    <div class="container">
+        <!-- COLONNE DE GAUCHE : TEXTE -->
+        <div class="main-content">
+            <h1>Carla Morvan</h1>
+            
+            <p>I am currently a PostDoctoral Fellow within the <a href="https://aircov-project.eu/" class="text-link">AirCov project</a> at the Center for environmental economics of Montpellier <a href="https://www.cee-m.fr/" class="text-link">(CEE-M)</a>, studying the health effects of air pollution.</p>
+            
+            <p><strong>My research interests</strong> lie in the fields of environmental economics, local public policy evaluation, and political economy.</p>
+            
+            <p>I completed my PhD at <a href="https://www.gate.cnrs.fr/" class="text-link">GATE Lyon—Saint-Etienne</a> and Université Lumière Lyon 2. My <a href="https://theses.hal.science/tel-04707116" class="text-link">dissertation</a> focuses on the budgetary and electoral consequences of natural disasters and prevention policies at the local level, employing both micro-econometric and theoretical methods.</p>
+            
+            <hr style="margin: 30px 0; border: 0; border-top: 1px solid #eee;">
+            
+
+        <!-- COLONNE DE DROITE : PHOTO ET LIENS -->
+        <div class="sidebar">
+            <!-- REMPLACEZ 'profile.jpg' PAR LE NOM EXACT DE VOTRE FICHIER IMAGE SUR GITHUB -->
+            <img src="assets/PHOTO_ID.jpg" alt="Carla Morvan" class="profile-img">
+            
+            <!-- REMPLACEZ LE # PAR LE LIEN VERS VOTRE CV (PDF ou Google Drive) -->
+            <a href="CV_MORVAN_jan26.pdf" class="cv-button">CV</a>
+            
+            <div class="social-links">
+                <!-- REMPLACEZ LES # PAR VOS LIENS SOCIAUX -->
+                <a href="https://www.linkedin.com/in/carla-morvan-6929b0146/" title="LinkedIn">in</a>
+                <a href="https://cv.hal.science/carla-morvan" title="HAL">RG</a>
+                <a href="https://scholar.google.com/citations?hl=fr&user=QzCeFGEAAAAJ" title="Google Scholar">GS</a>
+                <a href="mailto:morvan.carla@gmail.com" title="Email">✉️</a>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
