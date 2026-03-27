@@ -151,6 +151,23 @@
             background-color: #0255b3;
             text-decoration: none;
         }
+        /* Style spécifique pour le lien du titre */
+        .pub-title-link {
+            font-weight: 700;
+            font-size: 1.1em;
+            color: #000; /* Noir par défaut pour rester sobre */
+            text-decoration: none; /* Pas de soulignement par défaut */
+            margin-right: 5px;
+            transition: color 0.2s;
+            border-bottom: 1px solid transparent; /* Prépare l'animation */
+        }
+
+        /* Effet au survol de la souris */
+        .pub-title-link:hover {
+            color: #0366d6; /* Devient bleu GitHub */
+            border-bottom: 1px solid #0366d6; /* Soulignement discret */
+            text-decoration: none;
+        }
         .tag-cnu {
             display: inline-block;
             background-color: #28a745;
@@ -204,23 +221,35 @@
         <!-- SECTION: PUBLICATIONS -->
         <h2>Publications</h2>
         
-        <!-- Publication 1 -->
+       <!-- Publication 1 -->
         <div class="project-card">
             <div class="project-text">
-                <span class="pub-title">Natural disasters and voter gratitude: What role for prevention policies?</span>
-                <span class="pub-journal">Public Choice, 2024.</span> (avec Sonia Paty)
-                <span class="tag-cnu">Rang A CNU</span>
-                <div class="pub-links">
-                    <a href="#" class="pub-link">Working Paper</a>
-                    <a href="#" class="pub-link">Data & Code</a>
+                <div class="pub-header">
+                    <a href="https://link.springer.com/article/10.1007/s11127-023-01137-x" class="pub-title-link" target="_blank">
+                        Natural disasters and voter gratitude: What role for prevention policies?
+                    </a>
+                    <span class="pub-journal">Public Choice, 2024.</span>
+                    <span class="pub-coauthors">(avec Sonia Paty)</span>
+                    <span class="tag-cnu">Rang A CNU</span>
                 </div>
+
+                <div class="pub-media">
+                    <strong>Media Coverage:</strong> <em>The Conversation France</em>, <em>France Info</em>.
+                </div>
+
                 <p class="project-description">
-                    This paper examines whether voters reward incumbents who invest in disaster prevention. Using French municipal data, we show that prevention spending reduces electoral penalties after natural disasters.
+                    This paper examines whether voters reward incumbents who invest in disaster prevention...
                 </p>
+
+                <div class="pub-links">
+                    <!-- Ici on peut garder un lien vers le Working Paper si la version finale est payante -->
+                    <a href="assets/papers/morvan-wp-2023.pdf" class="pub-link">Working Paper (PDF)</a>
+                    <a href="https://github.com/..." class="pub-link" target="_blank">Data & Code</a>
+                </div>
             </div>
+            
             <div class="project-image">
-                <!-- REMPLACEZ PAR VOTRE IMAGE : ex: assets/pub1-graph.png -->
-                <img src="https://via.placeholder.com/350x200?text=Graph+Voter+Gratitude" alt="Voter Gratitude Graph">
+                <img src="assets/pub1-graph.png" alt="Graph">
             </div>
         </div>
 
