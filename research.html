@@ -171,6 +171,25 @@
             background-color: #0255b3;
             text-decoration: none;
         }
+ /* Style Media Coverage */
+        .pub-media {
+            font-size: 0.9em;
+            color: #555; /* Gris foncé, plus doux */
+            margin-bottom: 15px;
+            background-color: #f0f4f8; /* Fond bleu très pâle, presque gris */
+            padding: 8px 12px;
+            border-radius: 4px;
+            border-left: 3px solid #0366d6; /* Liseré BLEU (couleur de vos liens) au lieu du rouge */
+            display: inline-block; /* Pour que le fond ne prenne pas toute la largeur */
+        }
+        .pub-media a {
+            color: #0366d6; /* Liens bleus */
+            text-decoration: underline;
+        }
+        .pub-media strong {
+            font-weight: 600;
+            color: #333; /* "Science communication:" en gris foncé */
+        }
 
         /* --- PARTIE 2 : GRILLE 2 COLONNES (Abstract + Image) --- */
         .pub-content-grid {
@@ -197,21 +216,7 @@
             display: block;
         }
 
-        /* Style Media Coverage */
-        .pub-media {
-            font-size: 0.9em;
-            color: #d9534f;
-            margin-bottom: 15px;
-            background-color: #fdf7f7;
-            padding: 8px 12px;
-            border-radius: 4px;
-            border-left: 3px solid #d9534f;
-        }
-        .pub-media a {
-            color: #d9534f;
-            text-decoration: underline;
-        }
-
+       
         .project-description {
             text-align: justify;
             line-height: 1.6;
@@ -262,21 +267,24 @@
         <h2>Publications</h2>
         
        <!-- Publication 1 -->
-<!-- Publication 1 -->
         <div class="project-card">
             
             <!-- PARTIE 1 : EN-TÊTE PLEINE LARGEUR (Titre, Auteurs, Journal, Liens) -->
             <div class="pub-full-header">
                 <div class="pub-title-row">
+                    <!-- 1. Titre (Lien) -->
                     <a href="https://link.springer.com/article/10.1007/s11127-023-01137-x" class="pub-title-link" target="_blank">
                         Natural disasters and voter gratitude: What role for prevention policies?
                     </a>
+                    
+                    <!-- 2. Auteurs -->
                     <span class="pub-coauthors">with Sonia Paty,</span>
+                    
+                    <!-- 3. Journal -->
                     <span class="pub-journal">Public Choice, 2024.</span>
-                </div>
-                <div class="pub-action-row">
-                    <a href="https://hal.science/hal-04160167/" class="pub-link" target="_blank">Working Paper</a>
-                    <!-- Autres liens si besoin -->
+                    
+                    <!-- 4. Bouton Working Paper (Ajouté ici, à la suite) -->
+                    <a href="https://hal.science/hal-04160167/" class="pub-link-inline" target="_blank">Working Paper</a>
                 </div>
                 <div class="pub-abstract-col">
                     <div class="pub-media">
