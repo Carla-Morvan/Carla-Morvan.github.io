@@ -22,9 +22,24 @@ h2:first-child { margin-top: 0; }
 .project-card { margin-bottom: 50px; padding-bottom: 50px; border-bottom: 1px solid #eee; }
 .project-card:last-child { border-bottom: none; }
 .pub-full-header { margin-bottom: 25px; }
+
+/* LIGNE DE TITRE : On autorise le retour à la ligne */
 .pub-title-row { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; line-height: 1.4; padding-bottom: 15px; border-bottom: 2px solid #f0f0f0; }
-.pub-title-link { font-weight: 700; font-size: 1.15em; color: #000; text-decoration: none; white-space: nowrap; border-bottom: 1px solid transparent; transition: color 0.2s, border-bottom 0.2s; }
+
+/* TITRE : On enlève le 'nowrap' qui bloquait le texte sur une ligne */
+.pub-title-link { 
+    font-weight: 700; 
+    font-size: 1.15em; 
+    color: #000; 
+    text-decoration: none; 
+    /* white-space: nowrap;  <-- C'ÉTAIT LE COUPABLE ! On l'enlève ou on le met à 'normal' */
+    white-space: normal; 
+    border-bottom: 1px solid transparent; 
+    transition: color 0.2s, border-bottom 0.2s; 
+}
 .pub-title-link:hover { color: #0366d6; border-bottom: 1px solid #0366d6; }
+
+/* On garde le nowrap pour les petits éléments (auteurs, journal, boutons) car ils sont courts */
 .pub-coauthors { color: #555; font-style: italic; font-size: 0.95em; white-space: nowrap; }
 .pub-journal { color: #444; font-weight: 500; font-size: 0.95em; white-space: nowrap; }
 .pub-link-inline { display: inline-block; background-color: #0366d6; color: white; padding: 4px 10px; border-radius: 4px; text-decoration: none; font-size: 0.8em; font-weight: 600; white-space: nowrap; transition: background 0.3s; margin-left: 5px; }
@@ -37,32 +52,36 @@ h2:first-child { margin-top: 0; }
 .pub-title-link[style*="cursor: default"] { color: #000; border-bottom: none !important; }
 .pub-title-link[style*="cursor: default"]:hover { color: #000; }
 
-/* --- SYSTÈME DE GRILLE (Pour les projets avec colonnes) --- */
+/* --- SYSTÈME DE GRILLE --- */
 .pub-content-grid { display: flex; gap: 40px; align-items: flex-start; margin-top: 20px; }
 .pub-abstract-col { flex: 1; min-width: 0; }
 .pub-image-col { flex: 0 0 300px; text-align: center; }
 .pub-illustration { max-width: 100%; height: auto; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); display: block; }
 
-/* --- STYLE SPÉCIAL "IMAGE PLEINE PAGE" (Pour le Projet 1 Env & Health) --- */
-.pub-full-image-container {
-    margin-top: 25px;
-    text-align: center;
-}
-.pub-full-image-container img {
-    max-width: 80%; /* Plus large que dans la grille, mais pas 100% pour rester joli */
-    height: auto;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    display: inline-block;
-}
+/* --- IMAGE PLEINE PAGE --- */
+.pub-full-image-container { margin-top: 25px; text-align: center; }
+.pub-full-image-container img { max-width: 80%; height: auto; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); display: inline-block; }
 
 .project-description { text-align: justify; line-height: 1.6; color: #333; font-size: 0.95em; margin: 0; }
 
+/* --- CORRECTION MOBILE --- */
 @media (max-width: 768px) {
     .pub-content-grid { flex-direction: column; gap: 20px; }
     .pub-image-col { flex: none; width: 100%; }
     .pub-title-row { gap: 8px; }
     .pub-full-image-container img { max-width: 100%; }
+    
+    /* On s'assure que le titre passe bien à la ligne sur mobile */
+    .pub-title-link { 
+        white-space: normal; 
+        display: block; /* Force le titre à prendre sa propre ligne si besoin */
+        margin-bottom: 5px;
+    }
+    /* On aligne les autres éléments proprement en dessous */
+    .pub-coauthors, .pub-journal, .pub-link-inline, .pub-link-inline-static, .pub-media-inline {
+        display: inline-block;
+        margin-bottom: 4px;
+    }
 }
 footer { text-align: center; margin: 40px 0; color: #888; font-size: 0.9em; }
 </style>
