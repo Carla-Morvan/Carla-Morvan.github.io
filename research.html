@@ -40,7 +40,9 @@ h2:first-child { margin-top: 0; }
 .pub-title-link:hover { color: #0366d6; border-bottom: 1px solid #0366d6; }
 
 /* On garde le nowrap pour les petits éléments (auteurs, journal, boutons) car ils sont courts */
-.pub-coauthors { color: #555; font-style: italic; font-size: 0.95em; white-space: nowrap; }
+..pub-coauthors { color: #555; font-style: italic; font-size: 0.95em; white-space: nowrap; }
+.pub-coauthors a { color: #0366d6; text-decoration: none; }
+.pub-coauthors a:hover { text-decoration: underline; }
 .pub-journal { color: #444; font-weight: 500; font-size: 0.95em; white-space: nowrap; }
 .pub-link-inline { display: inline-block; background-color: #0366d6; color: white; padding: 4px 10px; border-radius: 4px; text-decoration: none; font-size: 0.8em; font-weight: 600; white-space: nowrap; transition: background 0.3s; margin-left: 5px; }
 .pub-link-inline:hover { background-color: #0255b3; text-decoration: none; color: white; }
