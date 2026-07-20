@@ -147,10 +147,20 @@
             color: #1a5f8a;
         }
  
-        .news-tag.tag-misc {
+        .news-tag.tag-job {
             background: #f2f2f2;
             color: #666;
         }
+
+        .news-tag.tag-workingpaper {
+    background: #eafaf1;
+    color: #1f7a4d;
+}
+
+.news-tag.tag-project {
+    background: #fff4e5;
+    color: #a35a00;
+}
  
         .news-text {
             margin: 0;
@@ -362,22 +372,26 @@
            et n'affiche que les 3 plus récentes au chargement.
            ========================================================== */
         const newsItems = [
-                       {
+            {
     date: "2026-09-10",
     tag: "Conference",
     text: "I will present my new project on the effects of air pollution on mental health at the FAERE conference in Dijon."
-}, 
-                       {
+            }, 
+            {
     date: "2026-07-15",
     tag: "Publication",
     text: 'Our paper on the impact of air pollution on COVID-19 hospitalizations and deaths has been accepted at the <em>International Journal of Epidemiology</em>. More info in the <a href="research.html">Research section</a>.'
-},
+            },
             {
                 date: "2026-09-01",
                 tag: "Job",
                 text: "I will be joining Université Paris Cité and LIRAES as an Assistant Professor !"
             },
-
+            {
+    date: "2026-06-01",
+    tag: "Working Paper",
+    text: 'New version of my paper: <em>When Nature Strikes Repeatedly: Are Municipalities Fiscally Resilient?</em> — <a href="https://carla-morvan.github.io/WP/JMP26.pdf" target="_blank">read it here</a>.'
+            }
 
             // Ajoute tes prochaines actus ici, séparées par une virgule
         ];
@@ -386,7 +400,7 @@
             const sorted = [...newsItems].sort((a, b) => new Date(b.date) - new Date(a.date));
             const listEl = document.getElementById('newsList');
             const toggleBtn = document.getElementById('newsToggle');
-            const tagClass = { "Publication": "", "Conference": "tag-conference", "Job": "tag-misc" };
+            const tagClass = { "Publication": "", "Conference": "tag-conference", "Job": "tag-job",  "Working Paper": "tag-workingpaper", "Project": "tag-project"};
  
             if (sorted.length === 0) {
                 listEl.innerHTML = '<p style="color:#999;">No news yet — check back soon.</p>';
