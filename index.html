@@ -386,7 +386,7 @@
             const sorted = [...newsItems].sort((a, b) => new Date(b.date) - new Date(a.date));
             const listEl = document.getElementById('newsList');
             const toggleBtn = document.getElementById('newsToggle');
-            const tagClass = { "Publication": "", "Conférence": "tag-conference", "Divers": "tag-misc" };
+            const tagClass = { "Publication": "", "Conference": "tag-conference", "Job": "tag-misc" };
  
             if (sorted.length === 0) {
                 listEl.innerHTML = '<p style="color:#999;">No news yet — check back soon.</p>';
