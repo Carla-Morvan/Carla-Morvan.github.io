@@ -411,7 +411,7 @@
                 const d = new Date(item.date);
                 const formatted = d.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
                 const cls = tagClass[item.tag] || '';
-                const hiddenClass = i >= 3 ? 'hidden-item' : '';
+                const hiddenClass = i >= 3 ? 'extra-item hidden-item' : '';
                 return `
                     <div class="news-item ${hiddenClass}">
                         <div class="news-date">${formatted}</div>
@@ -425,12 +425,12 @@
             if (sorted.length > 3) {
                 toggleBtn.style.display = 'block';
                 toggleBtn.addEventListener('click', function() {
-                    const hiddenItems = listEl.querySelectorAll('.hidden-item');
-                    const isExpanded = toggleBtn.dataset.expanded === 'true';
-                    hiddenItems.forEach(el => el.classList.toggle('hidden-item', isExpanded));
-                    toggleBtn.textContent = isExpanded ? 'See more' : 'See less';
-                    toggleBtn.dataset.expanded = isExpanded ? 'false' : 'true';
-                });
+    const extraItems = listEl.querySelectorAll('.extra-item');
+    const isExpanded = toggleBtn.dataset.expanded === 'true';
+    extraItems.forEach(el => el.classList.toggle('hidden-item', isExpanded));
+    toggleBtn.textContent = isExpanded ? 'See more' : 'See less';
+    toggleBtn.dataset.expanded = isExpanded ? 'false' : 'true';
+});
             }
         })();
     </script>
