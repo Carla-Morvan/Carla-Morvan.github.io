@@ -90,6 +90,109 @@
     color: #7b2d8e;
 }
 
+          /* --- SECTION ACTUALITÉS --- */
+        .news-section {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            margin-top: 25px;
+        }
+ 
+        .news-section h2 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+ 
+        .news-item {
+            display: flex;
+            gap: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid #f0e6f5;
+        }
+ 
+        .news-item:last-child {
+            border-bottom: none;
+        }
+ 
+        .news-date {
+            flex-shrink: 0;
+            width: 90px;
+            color: #888;
+            font-size: 0.85em;
+            padding-top: 2px;
+        }
+ 
+        .news-content {
+            flex: 1;
+        }
+ 
+        .news-tag {
+            display: inline-block;
+            font-size: 0.72em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 9px;
+            border-radius: 20px;
+            margin-bottom: 6px;
+            background: #f5edf7;
+            color: #7b2d8e;
+        }
+ 
+        .news-tag.tag-conference {
+            background: #eaf3fb;
+            color: #1a5f8a;
+        }
+ 
+        .news-tag.tag-misc {
+            background: #f2f2f2;
+            color: #666;
+        }
+ 
+        .news-text {
+            margin: 0;
+            text-align: left;
+        }
+ 
+        .news-text a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+        .news-text a:hover {
+            text-decoration: underline;
+        }
+ 
+        .news-toggle {
+            display: block;
+            margin: 20px auto 0;
+            background: none;
+            border: 1px solid #d9c2e8;
+            color: #7b2d8e;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+ 
+        .news-toggle:hover {
+            background: #f5edf7;
+        }
+ 
+        .news-item.hidden-item {
+            display: none;
+        }
+ 
+        @media (max-width: 600px) {
+            .news-section { padding: 20px; }
+            .news-item { flex-direction: column; gap: 4px; }
+            .news-date { width: auto; }
+        }
+        
         /* --- CONTENU PRINCIPAL --- */
         .main-wrapper {
             max-width: 900px;
@@ -229,11 +332,93 @@
             </div>
         </div>
     </div>
+
+           <!-- SECTION ACTUALITÉS -->
+    <div class="main-wrapper">
+        <div class="news-section" id="news">
+            <h2>📰 News</h2>
+            <div id="newsList"><!-- généré par le script ci-dessous --></div>
+            <button class="news-toggle" id="newsToggle" style="display:none;">Voir plus</button>
+        </div>
+    </div>
+
+        
    <!-- Pied de page simple -->
         <footer style="text-align: center; margin-top: 40px; color: #888; font-size: 0.9em;">
             <p>&copy; 2026 Carla Morvan. Hosted on GitHub Pages.</p>
         </footer>
      
     </div>
+
+    <script>
+        /* ==========================================================
+           LISTE DES ACTUALITÉS
+           Pour ajouter une actu : copie une ligne et modifie-la.
+           - date  : format "AAAA-MM-JJ" (sert au tri, du plus récent au plus ancien)
+           - tag   : "Publication", "Conférence" ou "Divers"
+           - text  : le texte affiché (tu peux mettre du HTML, ex: un lien
+                     avec <a href="...">texte</a>)
+           Pas besoin de les mettre dans l'ordre : le site trie tout seul
+           et n'affiche que les 3 plus récentes au chargement.
+           ========================================================== */
+        const newsItems = [
+                       {
+    date: "2026-09-10",
+    tag: "Conférence",
+    text: "I will present my new project on the effects of air pollution on mental health at the FAERE conference in Dijon."
+}, 
+                       {
+    date: "2026-07-15",
+    tag: "Publication",
+    text: 'Our paper on the impact of air pollution on COVID-19 hospitalizations and deaths has been accepted at the <em>International Journal of Epidemiology</em>. More info in the <a href="research.html">Research section</a>.'
+},
+            {
+                date: "2026-09-01",
+                tag: "Divers",
+                text: "I will be joining Université Paris Cité and LIRAES as an Assistant Professor !"
+            },
+
+
+            // Ajoute tes prochaines actus ici, séparées par une virgule
+        ];
+ 
+        (function renderNews() {
+            const sorted = [...newsItems].sort((a, b) => new Date(b.date) - new Date(a.date));
+            const listEl = document.getElementById('newsList');
+            const toggleBtn = document.getElementById('newsToggle');
+            const tagClass = { "Publication": "", "Conférence": "tag-conference", "Divers": "tag-misc" };
+ 
+            if (sorted.length === 0) {
+                listEl.innerHTML = '<p style="color:#999;">No news yet — check back soon.</p>';
+                return;
+            }
+ 
+            listEl.innerHTML = sorted.map((item, i) => {
+                const d = new Date(item.date);
+                const formatted = d.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
+                const cls = tagClass[item.tag] || '';
+                const hiddenClass = i >= 3 ? 'hidden-item' : '';
+                return `
+                    <div class="news-item ${hiddenClass}">
+                        <div class="news-date">${formatted}</div>
+                        <div class="news-content">
+                            <span class="news-tag ${cls}">${item.tag}</span>
+                            <p class="news-text">${item.text}</p>
+                        </div>
+                    </div>`;
+            }).join('');
+ 
+            if (sorted.length > 3) {
+                toggleBtn.style.display = 'block';
+                toggleBtn.addEventListener('click', function() {
+                    const hiddenItems = listEl.querySelectorAll('.hidden-item');
+                    const isExpanded = toggleBtn.dataset.expanded === 'true';
+                    hiddenItems.forEach(el => el.classList.toggle('hidden-item', isExpanded));
+                    toggleBtn.textContent = isExpanded ? 'Voir plus' : 'Voir moins';
+                    toggleBtn.dataset.expanded = isExpanded ? 'false' : 'true';
+                });
+            }
+        })();
+    </script>
 </body>
 </html>
