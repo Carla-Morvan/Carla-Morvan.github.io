@@ -348,7 +348,7 @@
         <div class="news-section" id="news">
             <h2>📰 News</h2>
             <div id="newsList"><!-- généré par le script ci-dessous --></div>
-            <button class="news-toggle" id="newsToggle" style="display:none;">Voir plus</button>
+            <button class="news-toggle" id="newsToggle" style="display:none;">See more</button>
         </div>
     </div>
 
@@ -428,7 +428,7 @@
                     const hiddenItems = listEl.querySelectorAll('.hidden-item');
                     const isExpanded = toggleBtn.dataset.expanded === 'true';
                     hiddenItems.forEach(el => el.classList.toggle('hidden-item', isExpanded));
-                    toggleBtn.textContent = isExpanded ? 'Voir plus' : 'Voir moins';
+                    toggleBtn.textContent = isExpanded ? 'See more' : 'See less';
                     toggleBtn.dataset.expanded = isExpanded ? 'false' : 'true';
                 });
             }
