@@ -65,6 +65,31 @@
             color: #0366d6; /* Bleu GitHub au survol */
         }
 
+        /* --- ENCADRÉ D'ANNONCE (sous le nom) --- */
+.announcement-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: linear-gradient(135deg, #f5edf7 0%, #ede4f5 100%);
+    border: 1px solid #d9c2e8;
+    border-left: 4px solid #7b2d8e;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+    color: #4a2255;
+}
+
+.announcement-box .announcement-emoji {
+    font-size: 1.3em;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.announcement-box strong {
+    color: #7b2d8e;
+}
+
         /* --- CONTENU PRINCIPAL --- */
         .main-wrapper {
             max-width: 900px;
@@ -158,6 +183,10 @@
         <div class="main-content">
             <h1>Carla Morvan</h1>
             
+            <div class="announcement-box">
+    <span class="announcement-emoji">📣</span>
+    <span><strong>Big news!</strong> Starting September 2026, I will be joining [University / Institution] as an Assistant Professor (Maîtresse de Conférences).</span>
+</div>
             <p>I am currently a PostDoctoral Fellow within the AirCov project at the Center for environmental economics of Montpellier (<a href="https://www.cee-m.fr/" class="text-link">CEE-M</a>), studying the health effects of air pollution.</p>
             
             <p><strong>My research interests lie in the fields of environmental economics, local public policy evaluation, and political economy.</strong></p>
